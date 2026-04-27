@@ -44,14 +44,19 @@ def run_network_benchmark(num_bidders, iterations):
         if response.status_code != 200:
             print(f"Error during iteration {i}: {response.text}")
 
-    # Save last log
+    # Save logs
     last_winner = response.json().get("winner")
+    fastest_time = min(times)
+    slowest_time = max(times)
     avg_time = mean(times)
+
+    fastest_iter = times.index(fastest_time) + 1
+    slowest_iter = times.index(slowest_time) + 1
 
     print("NETWORK RESUSLTS")
     print(f"Avrage time (RTT): {avg_time:.4f} ms")
-    print(f"Fastest time: {min(times):.4f} ms")
-    print(f"Slowest time: {max(times):.4f} ms")
+    print(f"Fastest time: {fastest_time:.4f} ms, Iteration {fastest_iter})")
+    print(f"Slowest time: {slowest_time:.4f} ms, Iteration {slowest_iter})")
     print(f"(Last winner was {last_winner['bidder_id']} with winning bid {last_winner['bid_amount']})")
 
 if __name__ == "__main__":

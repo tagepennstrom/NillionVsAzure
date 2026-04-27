@@ -27,3 +27,9 @@ python3 benchmark.py
 
 ### Custom (t.ex. 1000 bids, 10 iterations)
 python3 benchmark.py 1000 10
+
+## Docker build and run
+```bash
+docker build -t auction-api .
+docker run -p 8000:8000 auction-api
+```
