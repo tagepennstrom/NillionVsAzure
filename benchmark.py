@@ -4,7 +4,10 @@ import random
 import requests
 from statistics import mean
 
-SERVER_URL = "http://127.0.0.1:8000/auction"
+#Local: http://127.0.0.1:8000/auction
+#GCP: http://34.51.252.139/8000/auction
+
+SERVER_URL = "http://34.51.252.139/8000/auction"
 
 # Function to generate synthetic bids
 def generate_synthetic_bids(num_bidders):
